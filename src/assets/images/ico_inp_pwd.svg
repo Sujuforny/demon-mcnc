@@ -1,0 +1,12 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ico_pass_16" clip-path="url(#clip0_1_2750)">
+<path id="Vector" d="M13.4 6.94H2.59998C1.49541 6.94 0.599976 7.83543 0.599976 8.94V13.4C0.599976 14.5046 1.49541 15.4 2.59998 15.4H13.4C14.5045 15.4 15.4 14.5046 15.4 13.4V8.94C15.4 7.83543 14.5045 6.94 13.4 6.94Z" stroke="#BBBBBB" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M8 12.23V10.11" stroke="#BBBBBB" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M12.53 6.94V5.12C12.53 2.62 10.5 0.589996 7.99997 0.589996C5.49997 0.599996 3.46997 2.63 3.46997 5.13V6.95" stroke="#BBBBBB" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1_2750">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

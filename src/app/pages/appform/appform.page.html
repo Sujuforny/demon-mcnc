@@ -1,0 +1,589 @@
+ 
+    <body>
+      <div class="subwrap">
+          <div class="headerwrap">
+              <div class="toolbar">
+                  <h1 class="title">Application</h1>
+              </div>
+          </div>
+          <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+                <div class="contentwrap">
+                    <div class="card_box">
+                        <div class="row">
+                            <!-- ID Card / Passport -->
+                            <div class="col-6">
+                                <dl class="form01">
+                                    <dt>ID Card / Passport</dt>
+                                    <dd>
+                                        <div class="inp_box" [class.error]="myForm.get('idCard')?.invalid && myForm.get('idCard')?.touched">
+                                            <div class="inp" [class.has_value]="myForm.get('idCard')?.value">
+                                            <input type="text" placeholder="Please enter" formControlName="idCard">
+                                            <button type="button" class="btn_inp_del" (click)="myForm.get('idCard')?.setValue('')">clear</button>
+                                            </div>
+                                            <p class="txt_error" *ngIf="myForm.get('idCard')?.invalid && myForm.get('idCard')?.touched">
+                                            ID Card / Passport is required
+                                            </p>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+
+                            <!-- Nationality -->
+                            <div class="col-6">
+                                <dl class="form01">
+                                    <dt>Nationality</dt>
+                                    <dd>
+                                        <div class="inp_box" [class.error]="myForm.get('nationality')?.invalid && myForm.get('nationality')?.touched">
+                                            <div class="inp" [class.has_value]="myForm.get('nationality')?.value">
+                                              <select formControlName="nationality"> <!-- Bind the select to the form control -->
+                                                <option value="khmer">khmer</option>
+                                                <!-- Add more option elements here -->
+                                              </select>
+                                            </div>
+                                            <p class="txt_error" *ngIf="myForm.get('nationality')?.invalid && myForm.get('nationality')?.touched">
+                                              Nationality is required
+                                            </p>
+                                          </div>
+                                    </dd>
+                                </dl>
+                            </div>
+
+                            <!-- Age -->
+                            <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Age</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('age')?.invalid && myForm.get('age')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('age')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="age"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('age')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('age')?.invalid && myForm.get('age')?.touched">
+                                        Age is required and must be a number
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+                              <!-- Borrower Type -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Borrower Type</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('borrowerType')?.invalid && myForm.get('borrowerType')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('borrowerType')?.value">
+                                        <select formControlName="borrowerType"> <!-- Bind the select to the form control -->
+                                          <option value=""></option>
+                                          <!-- Add more option elements here -->
+                                        </select>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('borrowerType')?.invalid && myForm.get('borrowerType')?.touched">
+                                        Borrower Type is required
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+                              <!-- Job Experience -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Job Experience (Year)</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('jobExperience')?.invalid && myForm.get('jobExperience')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('jobExperience')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="jobExperience"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('jobExperience')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('jobExperience')?.invalid && myForm.get('jobExperience')?.touched">
+                                        Job Experience (Year) is required and must be a number
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+                              <!-- Monthly Income -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Monthly Income</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('monthlyIncome')?.invalid && myForm.get('monthlyIncome')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('monthlyIncome')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="monthlyIncome"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('monthlyIncome')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('monthlyIncome')?.invalid && myForm.get('monthlyIncome')?.touched">
+                                        Monthly Income is required and must be a valid number (up to 2 decimal places)
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+                              <!-- Monthly Expense -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Monthly Expense</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('monthlyExpense')?.invalid && myForm.get('monthlyExpense')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('monthlyExpense')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="monthlyExpense"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('monthlyExpense')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('monthlyExpense')?.invalid && myForm.get('monthlyExpense')?.touched">
+                                        Monthly Expense is required and must be a valid number (up to 2 decimal places)
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Collateral Yes/No -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Collateral Yes/No</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('collateral')?.invalid && myForm.get('collateral')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('collateral')?.value">
+                                        <select formControlName="collateral"> <!-- Bind the select to the form control -->
+                                          <option value=""></option>
+                                          <option value="Yes">Yes</option>
+                                          <option value="No">No</option>
+                                        </select>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('collateral')?.invalid && myForm.get('collateral')?.touched">
+                                        Collateral is required.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Application Amount -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Application Amount</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('applicationAmount')?.invalid && myForm.get('applicationAmount')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('applicationAmount')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="applicationAmount"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('applicationAmount')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('applicationAmount')?.invalid && myForm.get('applicationAmount')?.touched">
+                                        Application Amount is required and must be a valid number (up to 2 decimal places)
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+                              <!-- Currency -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Currency</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('currency')?.invalid && myForm.get('currency')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('currency')?.value">
+                                        <select formControlName="currency"> <!-- Bind the select to the form control -->
+                                          <option value=""></option>
+                                          <!-- Add more currency options here -->
+                                        </select>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('currency')?.invalid && myForm.get('currency')?.touched">
+                                        Currency is required.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Loan Term -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Loan Term</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('loanTerm')?.invalid && myForm.get('loanTerm')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('loanTerm')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="loanTerm"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('loanTerm')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('loanTerm')?.invalid && myForm.get('loanTerm')?.touched">
+                                        Loan Term is required and must be a whole number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+                              <!-- Collateral Value -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Collateral Value</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('collateralValue')?.invalid && myForm.get('collateralValue')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('collateralValue')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="collateralValue"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('collateralValue')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('collateralValue')?.invalid && myForm.get('collateralValue')?.touched">
+                                        Collateral Value is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+                              <!-- LTV -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>LTV</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('ltv')?.invalid && myForm.get('ltv')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('ltv')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="ltv"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('ltv')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('ltv')?.invalid && myForm.get('ltv')?.touched">
+                                        LTV is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Debt to Income Ratio -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Debt to Income Ratio</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('debtToIncomeRatio')?.invalid && myForm.get('debtToIncomeRatio')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('debtToIncomeRatio')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="debtToIncomeRatio"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('debtToIncomeRatio')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('debtToIncomeRatio')?.invalid && myForm.get('debtToIncomeRatio')?.touched">
+                                        Debt to Income Ratio is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- RCR (Repayment Capacity Ratio) -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>RCR (Repayment Capacity Ratio)</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('rcr')?.invalid && myForm.get('rcr')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('rcr')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="rcr"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('rcr')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('rcr')?.invalid && myForm.get('rcr')?.touched">
+                                        RCR (Repayment Capacity Ratio) is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+                              <!-- K Score -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>K Score</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('kScore')?.invalid && myForm.get('kScore')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('kScore')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="kScore"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('kScore')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('kScore')?.invalid && myForm.get('kScore')?.touched">
+                                        K Score is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Disbursed loans in 24 Months -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Disbursed loans in 24 Months</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('disbursedLoans24Months')?.invalid && myForm.get('disbursedLoans24Months')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('disbursedLoans24Months')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="disbursedLoans24Months"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('disbursedLoans24Months')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('disbursedLoans24Months')?.invalid && myForm.get('disbursedLoans24Months')?.touched">
+                                        Disbursed loans in 24 Months is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Late payment in last 3 months -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Late payment in last 3 months</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('latePaymentsLast3Months')?.invalid && myForm.get('latePaymentsLast3Months')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('latePaymentsLast3Months')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="latePaymentsLast3Months"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('latePaymentsLast3Months')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('latePaymentsLast3Months')?.invalid && myForm.get('latePaymentsLast3Months')?.touched">
+                                        Late payment in the last 3 months is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+
+                              <!-- Punctual payment in last 12 months -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Punctual payment in last 12 months</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('punctualPaymentsLast12Months')?.invalid && myForm.get('punctualPaymentsLast12Months')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('punctualPaymentsLast12Months')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="punctualPaymentsLast12Months"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('punctualPaymentsLast12Months')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('punctualPaymentsLast12Months')?.invalid && myForm.get('punctualPaymentsLast12Months')?.touched">
+                                        Punctual payment in the last 12 months is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Internal Write Off count in last 12 months -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Internal Write Off count in last 12 months</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('internalWriteOffLast12Months')?.invalid && myForm.get('internalWriteOffLast12Months')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('internalWriteOffLast12Months')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="internalWriteOffLast12Months"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('internalWriteOffLast12Months')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('internalWriteOffLast12Months')?.invalid && myForm.get('internalWriteOffLast12Months')?.touched">
+                                        Internal Write Off count in the last 12 months is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Total external active loans in last 12 months -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Total external active loans in last 12 months</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('totalExternalActiveLoansLast12Months')?.invalid && myForm.get('totalExternalActiveLoansLast12Months')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('totalExternalActiveLoansLast12Months')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="totalExternalActiveLoansLast12Months"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('totalExternalActiveLoansLast12Months')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('totalExternalActiveLoansLast12Months')?.invalid && myForm.get('totalExternalActiveLoansLast12Months')?.touched">
+                                        Total external active loans in the last 12 months is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- CBC enquiries in last 6 months -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>CBC enquiries in last 6 months</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('cbcEnquiriesLast6Months')?.invalid && myForm.get('cbcEnquiriesLast6Months')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('cbcEnquiriesLast6Months')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="cbcEnquiriesLast6Months"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('cbcEnquiriesLast6Months')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('cbcEnquiriesLast6Months')?.invalid && myForm.get('cbcEnquiriesLast6Months')?.touched">
+                                        CBC enquiries in the last 6 months is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- loans with Day Past Due > 30 days in last 6 months -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>loans with Day Past Due > 30 days in last 6 months</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('loansWithPastDue')?.invalid && myForm.get('loansWithPastDue')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('loansWithPastDue')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="loansWithPastDue"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('loansWithPastDue')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('loansWithPastDue')?.invalid && myForm.get('loansWithPastDue')?.touched">
+                                        Loans with Day Past Due > 30 days in the last 6 months is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Write off loans in the last 12 months -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Write off loans in the last 12 months</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('writeOffLoans')?.invalid && myForm.get('writeOffLoans')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('writeOffLoans')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="writeOffLoans"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('writeOffLoans')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('writeOffLoans')?.invalid && myForm.get('writeOffLoans')?.touched">
+                                        Write off loans in the last 12 months is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Internal loans with day past due > 60 days -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Internal loans with day past due > 60 days</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('internalLoansWithDayPastDue60Days')?.invalid && myForm.get('internalLoansWithDayPastDue60Days')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('internalLoansWithDayPastDue60Days')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="internalLoansWithDayPastDue60Days"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('internalLoansWithDayPastDue60Days')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('internalLoansWithDayPastDue60Days')?.invalid && myForm.get('internalLoansWithDayPastDue60Days')?.touched">
+                                        Internal loans with day past due > 60 days is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+                              <!-- Total count of lenders -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Total count of lenders</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('totalCountOfLenders')?.invalid && myForm.get('totalCountOfLenders')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('totalCountOfLenders')?.value">
+                                        <input type="text" placeholder="Please enter" formControlName="totalCountOfLenders"> <!-- Bind the input to the form control -->
+                                        <button type="button" class="btn_inp_del" (click)="myForm.get('totalCountOfLenders')?.setValue('')">clear</button>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('totalCountOfLenders')?.invalid && myForm.get('totalCountOfLenders')?.touched">
+                                        Total count of lenders is required and must be a valid number.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+
+                              <!-- Collateral Ownership -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Collateral Ownership</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('collateralOwnership')?.invalid && myForm.get('collateralOwnership')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('collateralOwnership')?.value !== ''">
+                                        <select formControlName="collateralOwnership"> <!-- Bind the select to the form control -->
+                                          <option value=""></option>
+                                          <!-- Add more option elements as needed -->
+                                        </select>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('collateralOwnership')?.invalid && myForm.get('collateralOwnership')?.touched">
+                                        Collateral Ownership is required.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+
+
+
+
+                              <!-- Is there an active restructured loan? -->
+                              <div class="col-6">
+                                <dl class="form01">
+                                  <dt>Is there an active restructured loan?</dt>
+                                  <dd>
+                                    <div class="inp_box" [class.error]="myForm.get('hasActiveRestructuredLoan')?.invalid && myForm.get('hasActiveRestructuredLoan')?.touched">
+                                      <div class="inp" [class.has_value]="myForm.get('hasActiveRestructuredLoan')?.value !== ''">
+                                        <select formControlName="hasActiveRestructuredLoan"> <!-- Bind the select to the form control -->
+                                          <option value=""></option>
+                                          <option value="Yes">Yes</option> <!-- Add more option elements as needed -->
+                                          <option value="No">No</option>
+                                        </select>
+                                      </div>
+                                      <p class="txt_error" *ngIf="myForm.get('hasActiveRestructuredLoan')?.invalid && myForm.get('hasActiveRestructuredLoan')?.touched">
+                                        Please select whether there is an active restructured loan or not.
+                                      </p>
+                                    </div>
+                                  </dd>
+                                </dl>
+                              </div>
+                              
+                        </div>
+                    </div>
+                </div>
+                <div class="footerwrap">
+                    <div class="toolbar">
+                        <button type="submit"  class="btn_primary"><span>Submit</span></button>
+                    </div>
+                </div>
+          </form>
+      </div>
+  </body>
+
+

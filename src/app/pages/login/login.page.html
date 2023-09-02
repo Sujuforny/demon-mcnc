@@ -1,0 +1,37 @@
+<div class="subwrap login_wrap">
+    <div class="thumbnail">
+        <img src="assets/images/img_thumbnail.png" alt=""/>
+    </div>
+    <div class="form_login">
+      <h1>Sign In</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="inp_box" [class.error]="loginForm.get('userId')?.invalid && loginForm.get('userId')?.touched">
+          <div class="inp" [class.has_value]="loginForm.get('userId')?.value">
+            <input type="text" class="inp_user" placeholder="User ID" formControlName="userId">
+            <button type="button" class="btn_inp_del" (click)="loginForm.get('userId')?.setValue('')">clear</button>
+          </div>
+          <p class="txt_error" *ngIf="loginForm.get('userId')?.invalid && loginForm.get('userId')?.touched">
+            User ID is required
+          </p>
+        </div>
+        <div class="inp_box" [class.error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <div class="inp" [class.has_value]="loginForm.get('password')?.value">
+            <input type="password" class="inp_pwd" placeholder="Password" formControlName="password">
+            <button type="button" class="btn_inp_del" (click)="loginForm.get('password')?.setValue('')">clear</button>
+          </div>
+          <p class="txt_error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            Password is required
+          </p>
+        </div>
+        <button class="btn_primary" type="submit" [disabled]="loginForm.invalid">
+          <span>Sign In</span>
+        </button>
+        <div class="option">
+          <label for="remember">
+            <input type="checkbox" id="remember"><span>Remember ID</span>
+          </label>
+        </div>
+      </form>
+    </div>
+  </div>
+  
